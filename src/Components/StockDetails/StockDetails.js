@@ -1,22 +1,36 @@
-import React from 'react';
+import {useEffect,useState} from 'react';
 import {useParams} from 'react-router-dom';
 
 
 function StockDetails({ stocks }) {
-  const { symbol } = useParams();
-
-  let stocksObj = stocks.find( (stock) => stock.symbol === symbol)
+  const [stock,setStock]= useState(null);
   
+  const { symbol } = useParams();
+	useEffect(() => {
+		let url = `https://cloud.iexapis.com/stable/stock/${symbol}/quote?token=${process.env.REACT_APP_IEX_KEY}`;
+
+		fetch(url)
+			.then((res) => res.json())
+			.then((data) => {
+				setStock(data);
+			})
+			.catch(console.error);
+	}, []);
+  
+  if (!stock) {
+    return;
+  }
 
   return (
 		<ul>
-			<li>name: {stocksObj.name}</li>
-			<li>Symbol: {stocksObj.symbol}</li>
-			<li>LastPrice: {stocksObj.lastPrice}</li>
-			<li>High: {stocksObj.high}</li>
-			<li>Low: {stocksObj.low}</li>
-			<li>Open: {stocksObj.open}</li>
-			<li>Change: {stocksObj.change}</li>
+			<li>name: {stock.companyName}</li>
+			<li>Symbol: {stock.symbol}</li>
+			<li>LastPrice: {stock.lastPrice}</li>
+			<li>High: {stock.high}</li>
+			<li>Low: {stock.low}</li>
+			<li>Open: {stock.open}</li>
+			<li>Change: {stock.change}</li>
+			<li>Change: {stock.previousClose}</li>
 		</ul>
 	);
 
