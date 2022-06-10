@@ -1,25 +1,39 @@
 import logo from './logo.svg';
 import './App.css';
+import About from './Components/About/About';
+import Dashboard from './Components/Dashboard/Dashboard';
+import StockDetails from './Components/StockDetails/StockDetails';
+import { Routes, Route, Link } from 'react-router-dom';
+import stockData from './data/stock-data.json';
+import { useState } from 'react';
 
+// key: process.env.REACT_APP_IEX_KEY
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+	const [stocks, setStocks] = useState(stockData);
+
+	return (
+		<div className='App'>
+			<nav>
+				<ul>
+					<li>
+						<Link to='/'>Home</Link>
+					</li>
+					<li>
+						<Link to='/about'>About</Link>
+					</li>
+				</ul>
+			</nav>
+			<Routes>
+				<Route path='' element={<Dashboard stocks={stocks} />} />
+				<Route path='/stocks' element={<Dashboard stocks={stocks} />} />
+				<Route path='/about' element={<About />} />
+				<Route
+					path='/stocks/:symbol'
+					element={<StockDetails stocks={stocks} />}
+				/>
+			</Routes>
+		</div>
+	);
 }
 
 export default App;
