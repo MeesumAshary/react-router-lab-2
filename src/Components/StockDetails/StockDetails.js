@@ -22,16 +22,18 @@ function StockDetails({ stocks }) {
   }
 
   return (
-		<ul>
-			<li>name: {stock.companyName}</li>
-			<li>Symbol: {stock.symbol}</li>
-			<li>LastPrice: {stock.lastPrice}</li>
-			<li>High: {stock.high}</li>
-			<li>Low: {stock.low}</li>
-			<li>Open: {stock.open}</li>
-			<li>Change: {stock.change}</li>
-			<li>Change: {stock.previousClose}</li>
-		</ul>
+		<div className="list">
+      <ul>
+        <li><h1>{stock.companyName}</h1></li>
+        <li>Symbol: {stock.symbol}</li>
+        <li>LastPrice: {stock.lastPrice}</li>
+        <li>High: {stock.high}</li>
+        <li>Low: {stock.low}</li>
+        <li>Open: {stock.open}</li>
+        <li>Change: {stock.change}</li>
+        <li>Change: {stock.previousClose}</li>
+      </ul>
+    </div>
 	);
 
 	

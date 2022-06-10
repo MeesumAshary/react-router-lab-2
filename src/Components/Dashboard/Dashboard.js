@@ -3,7 +3,8 @@ import { Link } from 'react-router-dom';
 
 function Dashboard({ stocks }) {
 	return (
-		<div>
+		<div className='list'>
+      <h1>Dashboard</h1>
 			<ul>
 				{stocks.map((stock,index) => {
 					return (

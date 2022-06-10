@@ -13,7 +13,7 @@ function App() {
 	return (
 		<div className='App'>
 			<nav>
-				<ul>
+				<ul >
 					<li>
 						<Link to='/'>Home</Link>
 					</li>
@@ -23,7 +23,7 @@ function App() {
 				</ul>
 			</nav>
 			<Routes>
-				<Route path='' element={<Dashboard stocks={stocks} />} />
+				<Route path='/' element={<Dashboard stocks={stocks} />} />
 				<Route path='/stocks' element={<Dashboard stocks={stocks} />} />
 				<Route path='/about' element={<About />} />
 				<Route

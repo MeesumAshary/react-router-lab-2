@@ -1,0 +1,36 @@
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing:border-box;
+  line-height: 1.7;
+}
+
+nav>ul{
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  background-color:black;
+  height: 60px;
+  
+}
+
+nav>ul>li{
+  color: orange;
+  /* list-style-type: none; */
+}
+
+a{
+  color: inherit;
+  text-decoration: none;
+}
+a:hover{
+  text-decoration: underline;
+}
+
+li{
+  list-style-type: none;
+}
+
+.list{
+  margin:2em;
+}
