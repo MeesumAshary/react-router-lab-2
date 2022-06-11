@@ -15,10 +15,10 @@ function App() {
 			<nav>
 				<ul>
 					<li>
-						<Link to='/'>Home</Link>
+						<Link to='/react-router-lab-2/'>Home</Link>
 					</li>
 					<li>
-						<Link to='/about'>About</Link>
+						<Link to='/react-router-lab-2/about'>About</Link>
 					</li>
 				</ul>
 			</nav>
